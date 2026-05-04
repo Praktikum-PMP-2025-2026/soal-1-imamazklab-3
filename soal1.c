@@ -141,7 +141,8 @@ void process(Node **l, int N) {
 
 // fungsi hapus memory
 void freeList(Node **l) {
-    Node *temp;
+    Node *temp = NULL;
+    temp = *l;
     while (*l != NULL) {
         temp = *l;
         *l = (*l)->next;
