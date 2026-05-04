@@ -79,6 +79,10 @@ void display(Node *l) {
     Node *temp = l;
     printf("LIST");
     if (temp != NULL) printf(" ");
+    else {
+        printf("LIST EMPTY");
+        return;
+    }
     while (temp != NULL) {
         printf("%d", temp->data);
         temp = temp->next;
