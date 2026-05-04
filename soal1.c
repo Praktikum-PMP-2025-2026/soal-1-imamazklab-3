@@ -77,6 +77,8 @@ void delete(Node **l, int val) {
 
 void display(Node *l) {
     Node *temp = l;
+    printf("LIST");
+    if (temp != NULL) printf(" ");
     while (temp != NULL) {
         printf("%d", temp->data);
         temp = temp->next;
