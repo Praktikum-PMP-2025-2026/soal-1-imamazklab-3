@@ -1,14 +1,27 @@
+/** EL2008 Praktikum Pemecahan Masalah dengan Pemrograman 2025/2026
+ *   Modul               : 04 – Dynamic Structures
+ *   Hari dan Tanggal    : Senin, 4 Mei 2026
+ *   Nama (NIM)          : Imam Azkaziyan Ahmad (13224058)
+ *   Nama File           : soal1.c
+ *   Deskripsi           : Program untuk mengelola Gerbong Kargo Campuran 
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #define IDX_UNDEF -1
 
+
+// struct
 typedef struct Node{
     int data;
     struct Node *next;
 } Node;
 
+
+// fungsi membuat node baru
 Node *createNode(int val) {
     Node *temp = NULL;
     temp = (Node *) malloc(sizeof(Node));
@@ -19,6 +32,7 @@ Node *createNode(int val) {
     return temp;
 }
 
+// fungsi push ke akhir node
 void pushBack(Node **l, int val) {
     Node *newNode = createNode(val);
 
@@ -34,6 +48,7 @@ void pushBack(Node **l, int val) {
     }
 }
 
+// fungsi push ke awal node
 void pushFront(Node **l, int val) {
     Node *newNode = createNode(val);
 
@@ -41,6 +56,7 @@ void pushFront(Node **l, int val) {
     *l = newNode;
 }
 
+// fungsi find nilai x
 int find(Node **l, int val) {
 
     int idx = 0;
@@ -57,6 +73,7 @@ int find(Node **l, int val) {
     return IDX_UNDEF;
 }
 
+// fungsi delete nilai x
 void delete(Node **l, int val) {
     Node *temp = *l;
     Node *prev = NULL;
@@ -75,6 +92,7 @@ void delete(Node **l, int val) {
     }
 }
 
+// fungsi display kee terminal
 void display(Node *l) {
     Node *temp = l;
     printf("LIST");
@@ -90,6 +108,7 @@ void display(Node *l) {
     }
 }
 
+// fungsi memproses perintah
 void process(Node **l, int N) {
     int command = 0, val = 0;
     for (int i = 0; i < N; i++) {
@@ -120,6 +139,7 @@ void process(Node **l, int N) {
     }
 }
 
+// fungsi hapus memory
 void freeList(Node **l) {
     Node *temp;
     while (*l != NULL) {
@@ -130,6 +150,7 @@ void freeList(Node **l) {
     *l = NULL;
 }
 
+// fungsi utama
 int main() {
     Node *head = NULL;
     int N = 0;
