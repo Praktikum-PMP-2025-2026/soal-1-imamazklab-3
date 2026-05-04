@@ -120,6 +120,16 @@ void process(Node **l, int N) {
     }
 }
 
+void freeList(Node **l) {
+    Node *temp;
+    while (*l != NULL) {
+        temp = *l;
+        *l = (*l)->next;
+        free(temp);
+    }
+    *l = NULL;
+}
+
 int main() {
     Node *head = NULL;
     int N = 0;
@@ -127,6 +137,8 @@ int main() {
 
     process(&head, N);
     display(head);
+
+    freeList(&head);
 
     return 0;
 }
