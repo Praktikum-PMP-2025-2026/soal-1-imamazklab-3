@@ -80,7 +80,7 @@ void display(Node *l) {
     printf("LIST");
     if (temp != NULL) printf(" ");
     else {
-        printf("EMPTY");
+        printf(" EMPTY");
         return;
     }
     while (temp != NULL) {
